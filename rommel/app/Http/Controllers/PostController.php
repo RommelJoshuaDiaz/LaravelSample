@@ -27,7 +27,7 @@ class PostController extends Controller
      */
     public function create()
     {
-        return view('posts.create');
+        return view ('Posts.create');
     }
 
     /**
@@ -54,8 +54,8 @@ class PostController extends Controller
         $post->save();
 
         // redirect to another page
-
-        return redirect()->route('posts.show', $post->id);
+     // Session::flash('success', 'The Article has been successfully created!');
+     //    return redirect()->route('posts.show', $post->id);
     }
 
     /**
@@ -66,7 +66,8 @@ class PostController extends Controller
      */
     public function show($id)
     {
-        //
+        $post = Post::find($id);
+        //return view ('posts.show')->with('post', $article);
     }
 
     /**
